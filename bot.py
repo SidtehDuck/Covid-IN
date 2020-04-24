@@ -3,10 +3,13 @@ from discord.utils import get
 from discord.ext import commands
 from discord import Embed, Emoji
 from discord.ext.commands import Bot
+import requests
 
 TOKEN = 'redacted'
 client = commands.Bot(command_prefix = '.cin ')
-os.chdir(r'directory here')
+#os.chdir(r'directory here')
+
+response = requests.get('')
 
 @client.event
 async def on_ready():
