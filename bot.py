@@ -22,8 +22,10 @@ if data['statewise'][2]['statecode'] == 'GJ':
     print('Confirmed cases: ' + data['statewise'][2]['confirmed'])
     print('Active cases: ' + data['statewise'][2]['active'])
 
+token_file = open('token.json',)
+token_data = json.load(token_file)
+TOKEN = token_file['token']
 
-TOKEN = 'redacted'
 client = commands.Bot(command_prefix = '%')
 os.chdir(r'home/ducc/duccz/Covid-IN')
 
