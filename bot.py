@@ -33,7 +33,7 @@ with open("token.json", "r") as infile:
         TOKEN = CONFIG["token"]
     except (KeyError, FileNotFoundError):
         raise EnvironmentError(
-            "Your config.json file is either missing, or incomplete. Check your config.json and ensure it has the keys 'token' and 'owner_id'"
+            "Your token.json file is either missing, or incomplete. Check your config.json and ensure it has the keys 'token' and 'owner_id'"
         )
 
 client = commands.Bot(command_prefix = '%')
