@@ -10,8 +10,6 @@ import requests
 r = requests.get('https://api.covid19india.org/data.json')
 data = r.json()
 
-print('Total cases so far in India: ' + data['statewise'][0]['confirmed'] + '\n')
-
 '''if data['statewise'][1]['statecode'] == 'MH':
     print('YEET MAHARASHTRA IS FUCKED BOIS')
     print('Confirmed cases: ' + data['statewise'][1]['confirmed'])
@@ -49,8 +47,9 @@ async def ping(ctx):
 
 @client.command()
 async def statMH(ctx):
-    await ctx.send('cases in maharashtra rn: ' + data['statewise'][1]['confirmed'])
-
+    await ctx.send('cases in MH rn: ' + data['statewise'][1]['confirmed'])
+    await ctx.send('active cases in MH rn: ' + data['statewise'][1]['active'])
+    await ctx.send('total deaths in MH rn: ' + data['statewise'][1]['deaths'])
 @client.command()
 async def statPB(ctx):
     await ctx.send('confirmed cases in punjab rn: ' + data['statewise'][15]['confirmed'])
@@ -68,6 +67,12 @@ async def statRJ(ctx):
     await ctx.send('confirmed cases in RJ rn: ' + data['statewise'][5]['confirmed'])
     await ctx.send('active cases in RJ rn: ' + data['statewise'][5]['active'])
     await ctx.send('total deaths in RJ rn: ' + data['statewise'][5]['deaths'])
+
+@client.command()
+async def statT(ctx):
+    await ctx.send('confirmed cases in India rn: ' + data['statewise'][0]['confirmed'])
+    await ctx.send('active cases in India rn: ' + data['statewise'][0]['active'])
+    await ctx.send('total deaths in India rn: ' + data['statewise'][0]['deaths'])
 
 @client.command()
 async def statlemi(ctx):
