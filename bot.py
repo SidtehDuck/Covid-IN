@@ -4,6 +4,7 @@ from discord.ext import commands
 from discord import Embed, Emoji
 from discord.ext.commands import Bot
 import requests
+from datetime import datetime
 
 #holy fucking shit this code is spaghetti as fuck
 
@@ -77,5 +78,13 @@ async def statT(ctx):
 @client.command()
 async def statlemi(ctx):
     await ctx.send('LEMI PUT MY NUTS ON YOUR FACE LOL')
+
+@client.command()
+async def test(ctx):
+    description='**Vote** <:dbl:689485017667469327> [TOP.GG](https://top.gg/bot/683462722368700526/vote) | **Donate** <:Kofi:689483361785217299> [Ko-fi](https://ko-fi.com/picklejason) | **Join** <:discord:689486285349715995> [Support Server](https://discord.gg/tVN2UTa) \n React with 📈 for a **linear** graph or 📉 for a **log** graph'
+    embed = discord.Embed(description=description, colour=discord.Colour.red(), timestamp=datetime.utcnow())
+
+    embed.set_author(name='Ducc', url='https://www.worldometers.info/coronavirus/', icon_url='https://images.discordapp.net/avatars/683462722368700526/70c1743a2d87a44116f857a88bb107e0.png?size=512')
+    embed.add_field(name='<:confirmed:689494326493184090> Confirmed')#, value= f'**{int(confirmed)}** {new_confirmed}')
 
 client.run(TOKEN)
