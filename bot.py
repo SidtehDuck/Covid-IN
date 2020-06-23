@@ -77,7 +77,7 @@ async def statT(ctx):
 
 @client.command()
 async def statlemi(ctx):
-    await ctx.send('LEMI PUT MY NUTS ON YOUR FACE LOL')
+    await ctx.send('Random text here')
 
 
 client.run(TOKEN)
