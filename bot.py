@@ -59,9 +59,9 @@ async def statPB(ctx):
 
 @client.command()
 async def statCG(ctx):
-    await ctx.send('confirmed cases in CG rn: ' + data['statewise'][23]['confirmed'])
-    await ctx.send('active cases in CG rn: ' + data['statewise'][23]['active'])
-    await ctx.send('total deaths in CG rn: ' + data['statewise'][23]['deaths'])
+    await ctx.send('confirmed cases in' + data['statewise'][21]['state'] + 'rn: ' + data['statewise'][21]['confirmed'])
+    await ctx.send('active cases in CG rn: ' + data['statewise'][21]['active'])
+    await ctx.send('total deaths in CG rn: ' + data['statewise'][21]['deaths'])
 
 @client.command()
 async def statRJ(ctx):
