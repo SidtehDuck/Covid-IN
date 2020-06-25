@@ -11,6 +11,8 @@ from datetime import datetime
 r = requests.get('https://api.covid19india.org/data.json')
 data = r.json()
 
+TOKEN = 'redacted'
+
 '''if data['statewise'][1]['statecode'] == 'MH':
     print('YEET MAHARASHTRA IS FUCKED BOIS')
     print('Confirmed cases: ' + data['statewise'][1]['confirmed'])
@@ -24,7 +26,7 @@ if data['statewise'][2]['statecode'] == 'GJ':
 token_file = open('token.json',)
 token_data = json.load(token_file)
 TOKEN = str(token_file['token'])
-'''
+
 
 with open("token.json", "r") as infile:
     try:
@@ -34,18 +36,31 @@ with open("token.json", "r") as infile:
         raise EnvironmentError(
             "Your token.json file is either missing, or incomplete. Check your config.json and ensure it has the keys 'token' and 'owner_id'"
         )
+'''
 
 client = commands.Bot(command_prefix = '%')
 #os.chdir(r'home/ducc/duccz/Covid-IN')
 
-@client.event
-async def on_ready():
-    print('Bot is ready')
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(f'You are delayed by {round(client.latency * 1000)} ms')
+    embed = discord.Embed(
+        title='Ping',
+        description=f'🏓 Pong! \t `{round(client.latency * 1000)}ms`',
+        colour=discord.Colour.red(),
+        timestamp=datetime.utcnow()
+    )
+    await ctx.send(embed=embed)
 
+
+@client.event
+async def on_ready():
+    print('Bot is ready')
+'''
+@client.command()
+async def ping(ctx):
+    await ctx.send(f'You are delayed by {round(client.latency * 1000)} ms')
+'''
 @client.command()
 async def statMH(ctx):
     await ctx.send('cases in MH rn: ' + data['statewise'][1]['confirmed'])
@@ -77,7 +92,7 @@ async def statT(ctx):
 
 @client.command()
 async def statlemi(ctx):
-    await ctx.send('Random text here')
+    await ctx.send('LEMI PUT MY NUTS ON YOUR FACE LOL')
 
 
 client.run(TOKEN)
